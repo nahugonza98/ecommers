@@ -1,5 +1,4 @@
 import React, {Fragment, useState} from 'react';
-import ListaDeProductos from './Item';
 
 const ContadorItem = ({stock}) => {
 

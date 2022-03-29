@@ -35,9 +35,13 @@ const ListaDeProductos = () => {
 const [productos, setProductos] = useState([])
 
 const getProductos = () =>{
+    
     return new Promise((resolve, reject) =>{
-        return resolve(datosProductos);
-    })
+            setTimeout(()=>{
+                console.log("SetTimeout Completado")
+                return resolve(datosProductos);
+            })
+        }, 2000)
 }
 
 useEffect(() => {
@@ -82,4 +86,4 @@ return (
 export default ListaDeProductos;
 
 
-/* Fusionar boton de conteo, agregar CSS, dar imagenes, solucionar que este uno encima de otro */
+/* , agregar CSS, solucionar que este uno encima de otro */
