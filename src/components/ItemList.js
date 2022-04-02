@@ -10,18 +10,19 @@ import Typography from "@mui/material/Typography";
 import ContadorItem from './ItemCount';
 /* Import Media */
 
-function ItemList(items){
+function ItemList(props){
+    /* Como pasar props */
+    const item = props.items
+    console.log (item)
+    /* ----- */
 
-    console.log(typeof items)
-  {setTimeout(()=>{
-    console.log(items)
 
-  }, 3000)}  
+    console.log(typeof item)  
 return (
     <Fragment>
 
         <div>{/* Lista */}
-            {items.map((producto) =>{
+            {item.map((producto) =>{
                 const {price, title ,id, stock, image} = producto
                     return(
                     <div key = {id}>
