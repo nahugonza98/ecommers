@@ -1,20 +1,8 @@
 import React, {Fragment, useState, useEffect} from "react";
+import ItemList from './ItemList'
 /* Import MUI */
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-/* Import Componentes */
-import ContadorItem from './ItemCount';
-/* Import Media */
-
-
-
-const ListaDeProductos = () => {
+const Item = () => {
   /* Datos MOCKUP */
-
-
     const datosProductos = [
     {
         id: 1,
@@ -52,38 +40,16 @@ useEffect(() => {
 
 
 
+console.log(typeof productos)
+
 
 return (
     <Fragment>
-
-        <div>{/* Lista */}
-            {productos.map((producto) =>{
-                const {price, title ,id, stock, image} = producto
-                    return(
-                    <div key = {id}>
-                        <Card  sx={{ maxWidth: 345 }}>
-                            <CardHeader title={title} />
-                            <CardContent>
-                            <Typography variant="body2" color="text.secondary">
-                            <CardMedia component="img" image={image} height="194" alt='imagen'/>
-                                Stock Disponible: {stock}
-                            </Typography>
-                            ${price}
-                            </CardContent>
-                            <ContadorItem stock={stock}></ContadorItem>
-                        </Card> 
-                        
-
-                    </div>
-                    )
-            })}
-
-        </div>
-
+        <ItemList items={productos}/>
     </Fragment>
 );
 };
-export default ListaDeProductos;
+export default Item;
 
 
 /* , agregar CSS, solucionar que este uno encima de otro */
