@@ -9,14 +9,15 @@ import Typography from "@mui/material/Typography";
 
 
 function ItemDetail(data){
-    console.log(data.data)
-    const {image, title, stock, price} = data.data
-    
+    const info = data.data
+    const {image, title, stock, price} = info
+
+
     return (
         <Fragment>
             {/* Ejemplo de Prueba */}
-            <div>
-
+            /* <div>
+                        <p>ABC</p>
                         <Card  sx={{ maxWidth: 345 }}>
                             <CardHeader title={title} />
                             <CardContent>
@@ -29,11 +30,11 @@ function ItemDetail(data){
                         </Card> 
                         
 
-            </div>
+            </div> */
+            <h2>Prueba</h2>
         </Fragment>
     )
 }
 
-/* ESTO TIENE EL JSX  */
 
 export default ItemDetail;

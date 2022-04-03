@@ -1,6 +1,7 @@
 import NavBar from "./components/Navbar";
-import ItemListContainer from "./components/ItemListContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from './pages/HomePage'
+import ItemDetail from "./components/ItemDetail";
 
 function App() {
   return (
@@ -8,7 +9,9 @@ function App() {
       <BrowserRouter>
         <NavBar />
           <Routes>
-            <Route path="/" element={<ItemListContainer />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/detalle" element={<ItemDetail />} />
+            <Route path="/detalle/:id" element={<ItemDetail />} />
           </Routes>
       </BrowserRouter>
     </div>
