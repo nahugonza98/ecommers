@@ -1,6 +1,5 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom'
-
 import datosProductos from '../datosProductos';
 
 
@@ -13,12 +12,12 @@ import Typography from "@mui/material/Typography";
 
 
 function ItemDetail(data){
-   /*  const info = data.data
-    const {image, title, stock, price} = info */
+    const info = data.data
+    
 
     
     const {id, category} = useParams()
-    console.log("Estas en el ID num: ", id)
+
 
     const [product, setProduct] = useState({})
 
@@ -27,8 +26,8 @@ function ItemDetail(data){
     }, [id])
 
     const productoFiltrado = () =>{
-        return datosProductos.map( (product) => {
-            if(product.id == id){
+        return datosProductos.map( (producto) => {
+            if(producto.id == id){
                 return setProduct(product)
             }
         })
@@ -36,27 +35,25 @@ function ItemDetail(data){
 
     return (
         <Fragment>
+            <h2>PRUEBA</h2>
             {/* Ejemplo de Prueba */}
-            {/* <div>
+            {/* Mapear Para que estes los detalles correctos */}
+            <div>
                         <p>ABC</p>
                         <Card  sx={{ maxWidth: 345 }}>
-                            <CardHeader title={title} />
+                            <CardHeader title="" />
                             <CardContent>
                             <Typography variant="body2" color="text.secondary">
-                            <CardMedia component="img" image={image} height="194" alt='imagen'/>
-                                Stock Disponible: {stock}
+                            <CardMedia component="img" image="" height="194" alt='imagen'/>
+                                Stock Disponible: ""
                             </Typography>
-                            ${price}
+                            $""
                             </CardContent>
                         </Card> 
                         
 
-            </div> */}
-            <h2>Prueba</h2>
-            <p>{product.title}</p>
-            <p>{product.price}</p>
-            <p>{product.talle}</p>
-
+            </div>
+            
         </Fragment>
     )
 }

@@ -12,10 +12,10 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import CartWidget from "./CartWidget";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
-const pages = [{title:"Productos", id: 1, url:"/"}, {title:"Precios", id:2, url:"/detal"}];
+const pages = [{title:"Productos", id: 1, url:"/"}, {title:"Precios", id:2, url:"/detalle"}, {title:"Prueba1", id:3, url: "/zapatilla"}, {title:"Prueba2", id:4, url: "/botines"}];
 const settings = ["Perfil", "Cuenta", "Cerrar Sesion"];
 
 const ResponsiveAppBar = () => {
@@ -44,6 +44,7 @@ const ResponsiveAppBar = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          <Link to="/">
           <Typography
             variant="h6"
             noWrap
@@ -52,6 +53,7 @@ const ResponsiveAppBar = () => {
           >
             ECOMMERS
           </Typography>
+                </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -83,10 +85,10 @@ const ResponsiveAppBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.id} onClick={handleCloseNavMenu}>
-                  
+              <MenuItem key={page.id} onClick={handleCloseNavMenu}>
+                
                     <Link to={page.url}>{page.title}</Link>
-                  
+                
                 </MenuItem>
               ))}
             </Menu>
@@ -105,7 +107,8 @@ const ResponsiveAppBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page.title}
+              <Link to={page.url}>{page.title}</Link>
+              {/* CREAR DESPLEGABLE CON MUI  Y METER DATOS DE OTRO MOCK QUE CREE DE CATEGORIAS*/}
               </Button>
               ))}
 

@@ -1,5 +1,5 @@
 import React,{Fragment} from 'react';
-import Item from './Item'
+import { Link } from 'react-router-dom';
 //IMPORT MUI
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -11,19 +11,18 @@ import ContadorItem from './ItemCount';
 /* Import Media */
 
 function ItemList(props){
+    
     /* Como pasar props */
     const item = props.items
-    console.log (item)
+    /* console.log (item) */
     /* ----- */
 
-
-    console.log(typeof item)  
 return (
     <Fragment>
 
         <div>{/* Lista */}
-            {item.map((producto) =>{
-                const {price, title ,id, stock, image} = producto
+            {item.map((catalogo) =>{
+                const {price, title ,id, stock, image} = catalogo
                     return(
                     <div key = {id}>
                         <Card  sx={{ maxWidth: 345 }}>
@@ -35,6 +34,7 @@ return (
                             </Typography>
                             ${price}
                             </CardContent>
+                            <Link to={`/detalle/${id}`}> Detalle del Producto </Link>
                             <ContadorItem stock={stock}></ContadorItem>
                         </Card> 
                         
@@ -49,4 +49,4 @@ return (
 )
 };
 
-export default ItemList
+export default ItemList;

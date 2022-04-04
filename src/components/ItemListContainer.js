@@ -8,7 +8,7 @@ function ItemListContainer () {
         <>
         <h2>Lista de Productos</h2>
         <Item />
-        <ItemDetailContainer />
+        {/* <ItemDetailContainer /> */}
         </>
         )
 }
