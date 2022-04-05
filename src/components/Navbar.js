@@ -12,8 +12,8 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import CartWidget from "./CartWidget";
-import { Link } from "react-router-dom";
 import "../Css/NavBar.css";
+import { Link } from "react-router-dom";
 
 const pages = [
   { title: "Productos", id: 1, url: "/" },
@@ -43,9 +43,9 @@ const ResponsiveAppBar = () => {
   return (
     <>
       <AppBar position="static">
-        <Container maxWidth="xl">
+        <Container className="container" maxWidth="xl">
           <Toolbar disableGutters>
-            <Link to="/">
+            <Link className="link" to="/">
               <Typography
                 variant="h6"
                 noWrap
@@ -56,7 +56,7 @@ const ResponsiveAppBar = () => {
               </Typography>
             </Link>
 
-            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+            <Box className="box" sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -92,42 +92,37 @@ const ResponsiveAppBar = () => {
                 ))}
               </Menu>
             </Box>
+
             <Typography
               variant="h6"
               noWrap
               component="div"
               sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
             ></Typography>
-            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+
+            <Box className="box" sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
                 <Link to={page.url} key={page.id}>
-                  <Button
-                    onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: "white", display: "block" }}
-                  >
+                  <Button  onClick={handleCloseNavMenu}>
                     {page.title}
                   </Button>
                 </Link>
               ))}
-              
-                <ul className="menu">
-                  <li>
-                    CATEGORIAS
-                    <ul>
-                      <li>
-                        <Link to={"/zapatilla"}>Zapatilla</Link>
-                      </li>
-                      <li>
-                        <Link to={"/botines"}>Botines</Link>{" "}
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              
-            </Box>
+              </Box>
+
+              <Box className="categorias" sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+                  <ul>CATEGORIAS
+                    <li className="link">
+                      <Link  to={"/zapatilla"}>Zapatilla</Link>
+                    </li>
+                    <li className="link">
+                      <Link to={"/botines"}>Botines</Link>
+                    </li>
+                  </ul>
+              </Box>
             <CartWidget />
 
-            <Box sx={{ flexGrow: 0 }}>
+            <Box sx={{ flexGrow: 1 }}>
               <Tooltip title="Abrir Configuracion">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />

@@ -39,7 +39,6 @@ function ItemDetail(data){
             {/* Ejemplo de Prueba */}
             {/* Mapear Para que estes los detalles correctos */}
             <div>
-                        <p>ABC</p>
                         <Card  sx={{ maxWidth: 345 }}>
                             <CardHeader title="" />
                             <CardContent>
