@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from 'react';
 import { Link } from 'react-router-dom';
 
-const ContadorItem = ({stock}) => {
+const ContadorItem = ({stock, onAdd}) => {
 
         /* State */
         const [contador, setContador] = useState(0)
@@ -20,10 +20,6 @@ const ContadorItem = ({stock}) => {
             }
         }
 
-        function addOn(){
-                console.log("Producto agregado al Carrito correctamente");
-                setContador(0)
-        }
 
 
         /* DOM */
@@ -33,7 +29,8 @@ const ContadorItem = ({stock}) => {
             <p>{contador}</p>
             <button onClick={restarStock}>-</button>
             <button onClick={sumarStock}>+</button>
-            <button onClick={addOn}>Agregar Al Carrito</button>
+            <button onClick={() => onAdd(true)}>Añadir al carrito</button>
+
             
             </div>
         </Fragment>
