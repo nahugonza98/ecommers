@@ -1,4 +1,12 @@
+/* Importaciones */
 import * as React from "react";
+import CartWidget from "../CartWidget/CartWidget";
+import { Link } from "react-router-dom";
+
+/* CSS */
+import "./NavBar.css";
+
+/* Material UI */
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -11,9 +19,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import CartWidget from "./CartWidget";
-import "../Css/NavBar.css";
-import { Link } from "react-router-dom";
 
 const pages = [
   { title: "Productos", id: 1, url: "/" },

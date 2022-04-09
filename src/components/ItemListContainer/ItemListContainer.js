@@ -1,6 +1,5 @@
 import React from 'react';
-import Item from './Item'
-import ItemDetailContainer from './ItemDetailContainer';
+import Item from '../Item/Item'
 
 
 function ItemListContainer () {
@@ -8,7 +7,6 @@ function ItemListContainer () {
         <>
         <h2>Lista de Productos</h2>
         <Item />
-        {/* <ItemDetailContainer /> */}
         </>
         )
 }

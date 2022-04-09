@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
-import ItemDetail from './ItemDetail';
-import datosProductos from "../datosProductos";
+import ItemDetail from './ItemDetail/ItemDetail';
+import datosProductos from "../../datosProductos";
 
 
 const ItemDetailContainer = () =>{

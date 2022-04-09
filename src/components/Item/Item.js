@@ -1,6 +1,6 @@
 import React, {Fragment, useState, useEffect} from "react";
-import ItemList from './ItemList'
-import datosProductos from '../datosProductos'
+import ItemList from '../ItemList/ItemList'
+import datosProductos from '../../datosProductos'
 import { useParams } from 'react-router-dom'
 
 /* Import MUI */

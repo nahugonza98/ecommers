@@ -1,7 +1,7 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom'
-import datosProductos from '../datosProductos';
-import ItemCount from './ItemCount'
+import datosProductos from "../../datosProductos";
+import ItemCount from '../ItemCount/ItemCount'
 
 /* Import MUI */
 import Card from "@mui/material/Card";

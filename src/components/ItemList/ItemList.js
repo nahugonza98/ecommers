@@ -1,5 +1,6 @@
-import React,{Fragment} from 'react';
+import React,{Fragment, useContext, useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import CartContext from "../Context/CartContext"
 //IMPORT MUI
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -7,22 +8,32 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 /* Import Componentes */
-import ContadorItem from './ItemCount';
+
 /* Import Media */
 
 function ItemList(props){
     
-    /* Como pasar props */
-    const item = props.items
-    /* console.log (item) */
-    /* ----- */
 
+/* Desestrucracion del Context */
+
+    const {cartProducts, agregarProdCart} = useContext(CartContext)
+        /* Como pasar props */
+        const item = props.items
+
+        useEffect(()=>{
+            console.log("cartproductos", cartProducts)
+        }, [])
+        const addToCart = () =>{
+            agregarProdCart(item)
+        }
 return (
     <Fragment>
 
-        <div>{/* Lista */}
+            {/* Lista */}
+        <div>
             {item.map((catalogo) =>{
                 const {price, title ,id, stock, image} = catalogo
+                console.log(catalogo)
                     return(
                     <div key = {id}>
                         <Card  sx={{ maxWidth: 345 }}>
@@ -35,7 +46,11 @@ return (
                             ${price}
                             </CardContent>
                             <Link to={`/detalle/${id}`}> Detalle del Producto </Link>
-                            <ContadorItem stock={stock}></ContadorItem>
+                            <div>
+                            <button onClick={addToCart}>Agregar Carrito</button>
+                            </div>
+                                
+
                         </Card> 
                         
 
