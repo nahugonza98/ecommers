@@ -23,9 +23,8 @@ function ItemList(props){
         useEffect(()=>{
             console.log("cartproductos", cartProducts)
         }, [])
-        const addToCart = () =>{
-            agregarProdCart(item)
-        }
+
+
 return (
     <Fragment>
 
@@ -33,7 +32,6 @@ return (
         <div>
             {item.map((catalogo) =>{
                 const {price, title ,id, stock, image} = catalogo
-                console.log(catalogo)
                     return(
                     <div key = {id}>
                         <Card  sx={{ maxWidth: 345 }}>
@@ -47,7 +45,8 @@ return (
                             </CardContent>
                             <Link to={`/detalle/${id}`}> Detalle del Producto </Link>
                             <div>
-                            <button onClick={addToCart}>Agregar Carrito</button>
+                            <button onClick={() => agregarProdCart(catalogo)}>Agregar Carrito</button>
+                            <button onClick={() => console.log(cartProducts)}>ver Carrito</button>
                             </div>
                                 
 

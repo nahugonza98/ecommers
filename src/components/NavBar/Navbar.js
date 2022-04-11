@@ -3,6 +3,7 @@ import * as React from "react";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
 
+
 /* CSS */
 import "./NavBar.css";
 

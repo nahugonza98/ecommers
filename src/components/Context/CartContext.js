@@ -10,12 +10,37 @@ const CartProvider = ({children}) =>{
     const [cartProducts, setCartProducts] = useState([])
 
     const agregarProdCart = (producto) =>{
-            console.log("Se ha agregado ", producto)
+            /* No repetir Items */
+            let exist = cartProducts.find(cartProducts => cartProducts.id === producto.id)
+
+            !exist && setCartProducts(cartProducts => [...cartProducts, producto ])
+             /* Spread Operatior, suma a lo que ya tiene guardado */
     }
 
+    /* Borrar producto */
+
+    const deleteProduct = (product) => {
+        setCartProducts(cartProducts.filter( (cartProduct) => {
+            return cartProduct.id !== product.id
+        }))
+    }
+
+    /* Sumar Precio */
+    
+    const sumarPrecio = () =>{
+        let total = 0 
+        cartProducts.map((cartProduct)=>{
+            total = cartProduct.price + total
+        })
+        return total
+    }
+
+    /* Todo lo que se vaya a exportar agrupar en el data  */
     const data = {
         cartProducts,
-        agregarProdCart
+        agregarProdCart,
+        deleteProduct,
+        sumarPrecio
     }
 
     /* JSX */
