@@ -6,7 +6,7 @@ import CartContext from '../Context/CartContext';
 import "./Cart.css"
 
 const CartPage = () => {
-    const { cartProducts, deleteProduct, sumarPrecio } = useContext(CartContext)
+    const { cartProducts, deleteProduct, totalPrecio } = useContext(CartContext)
 
     return(
         <Container className='container-general'> 
@@ -49,11 +49,11 @@ const CartPage = () => {
                     <div className='cart-checkout-details'>
                         <div className='cart-checkout__subtotal'>
                             <p>Subtotal</p>
-                            <span>$ {sumarPrecio()}</span>
+                            <span>$ {totalPrecio}</span>
                         </div>
                         <div className='cart-checkout__total'>
                             <p>Total</p>
-                            <span>$ {sumarPrecio()}</span>
+                            <span>$ {totalPrecio}</span>
                         </div>
                         <Button className='btn-custom'>Completar Compra</Button>
                     </div>

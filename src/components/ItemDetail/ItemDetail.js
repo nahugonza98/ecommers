@@ -2,6 +2,8 @@ import React, {Fragment, useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom'
 import datosProductos from "../../datosProductos";
 import ItemCount from '../ItemCount/ItemCount'
+import db from '../../firebaseconfig'
+import { doc, getDoc} from "firebase/firestore";
 
 /* Import MUI */
 import Card from "@mui/material/Card";
@@ -12,61 +14,58 @@ import Typography from "@mui/material/Typography";
 import { Link } from 'react-router-dom'
 
 function seguirCompra () {
-  return (
+    return (
     <div className='seguirCompra'>
-      <Link to='/cart'><button className='btnSeguirCompra'>Ir al carrito y finalizar compra</button></Link>
-      <Link to='/'><button className='btnSeguirCompra'>Seguir comprando</button></Link>
+    <Link to='/cart'><button className='btnSeguirCompra'>Ir al carrito y finalizar compra</button></Link>
+    <Link to='/'><button className='btnSeguirCompra'>Seguir comprando</button></Link>
     </div>
-  )
+    )
 }
 
 
-function ItemDetail(data){
-    const info = data.data
-console.log(data)
 
-    
-    const {id, category} = useParams()
+function ItemDetail({data}){
 
+
+
+    console.log(data)
+    /* Traigo el ID con el useParams */
+    const {id} = useParams()
 
     const [product, setProduct] = useState({})
 
-    useEffect( ()=> {
-        productoFiltrado()
-    }, [id])
-
-    const productoFiltrado = () =>{
-        return datosProductos.map( (producto) => {
-            if(producto.id == id){
-                return setProduct(product)
+        useEffect(  ()=> {
+            
+            const getData = async (id) => {
+                const docRef = doc(db, 'productos', id)
+                const docSnap = await getDoc(docRef)
+                const findProducto = docSnap.data()
+                setProduct(findProducto)
             }
-        })
-    }
-
-    function addOn(){
-        console.log("Producto agregado al Carrito correctamente");
-        setContador(0)
-}
+            getData(id)
+            }, [])
+    
+console.log(product)
+            
+            
 
 const [valorCount, setValorCount] = useState(false)
-  const borrarTitulo = (text) => {
-    setValorCount(text)
-  }
+    const borrarTitulo = (text) => {
+        setValorCount(text)
+    }
 
     return (
         <Fragment>
-            <h2>PRUEBA</h2>
-            {/* Ejemplo de Prueba */}
-            {/* Mapear Para que estes los detalles correctos */}
+
             <div>
                         <Card  sx={{ maxWidth: 345 }}>
-                            <CardHeader title="" />
+                            <CardHeader title={product.title} />
                             <CardContent>
                             <Typography variant="body2" color="text.secondary">
-                            <CardMedia component="img" image="" height="194" alt='imagen'/>
-                                Stock Disponible: ""
+                            <CardMedia component="img" image={product.image} height="194" alt='imagen'/>
+                                Stock Disponible: {product.stock}
                             </Typography>
-                            $""
+                            ${product.price}
                             </CardContent>
                         </Card> 
                         <div>

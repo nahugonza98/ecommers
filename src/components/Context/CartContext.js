@@ -8,13 +8,16 @@ const CartProvider = ({children}) =>{
     /* Logica */
 
     const [cartProducts, setCartProducts] = useState([])
+    const [totalPrecio, setTotalPrecio] = useState(0)
 
     const agregarProdCart = (producto) =>{
             /* No repetir Items */
             let exist = cartProducts.find(cartProducts => cartProducts.id === producto.id)
 
-            !exist && setCartProducts(cartProducts => [...cartProducts, producto ])
-             /* Spread Operatior, suma a lo que ya tiene guardado */
+            if(!exist) { 
+                setTotalPrecio(totalPrecio + producto.price)
+                setCartProducts(cartProducts => [...cartProducts, producto])
+            }
     }
 
     /* Borrar producto */
@@ -40,7 +43,7 @@ const CartProvider = ({children}) =>{
         cartProducts,
         agregarProdCart,
         deleteProduct,
-        sumarPrecio
+        totalPrecio
     }
 
     /* JSX */
