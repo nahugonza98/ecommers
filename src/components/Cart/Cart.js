@@ -1,12 +1,76 @@
-import {useContext} from 'react'
+import {useContext, useState} from 'react'
 import Container from '@mui/material/Container';
 import { Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CartContext from '../Context/CartContext';
 import "./Cart.css"
+import ModalCustom from '../Modal/Modal';
+import db from '../../firebaseconfig'
+import { addDoc, collection } from 'firebase/firestore';
 
 const CartPage = () => {
     const { cartProducts, deleteProduct, totalPrecio } = useContext(CartContext)
+    const [openModal, setOpenModal] = useState(false)
+
+    /* Data del FORM, seteada */
+    const [formData, setFormData] = useState({
+        name: '',
+        phone: '',  
+        email: '',
+    })
+
+    /* State de la Order */
+    const [order, setOrder] = useState(
+        {
+            buyer : formData,
+            /* Se mapea el Item para que devuelva los obj */
+            item: cartProducts.map( (cartProduct) => {
+
+                return{
+                    id: cartProduct.id,
+                    title: cartProduct.title,
+                    price: cartProduct.price
+                }
+            }),
+            total: totalPrecio,
+        }
+    )
+
+    /* Apertura del MODAL */
+    const addOrder = ()=>{
+        setOpenModal(true)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        let prevOrder = {...order,
+            buyer: formData
+        }
+        setOrder({...order,
+            buyer: formData})
+        pushOrder(prevOrder)
+    }
+
+    const [successOrder, setSuccessOrder] = useState()
+
+
+    /* Guardar Ordenes */
+    const pushOrder = async()=>{
+        const orderFirebase = collection(db, 'ordenes')
+        const orderDoc = await addDoc(orderFirebase, order)
+    }
+    /*  Cambios en el form*/
+    const handleChange = (e) => {
+        const {value, name} = e.target
+        setFormData({
+            /* [] Lo que haya dentro es un tipo de variable, sino crearia una propiedad nueva */
+            ...formData,
+            [name] : value
+        })
+    }
+
+
+
 
     return(
         <Container className='container-general'> 
@@ -55,12 +119,46 @@ const CartPage = () => {
                             <p>Total</p>
                             <span>$ {totalPrecio}</span>
                         </div>
-                        <Button className='btn-custom'>Completar Compra</Button>
+                        <Button className='btn-custom' onClick={addOrder}>Completar Compra</Button>
                     </div>
                 </div>
             </div>
+
+            {/* MODAL */}
+            <ModalCustom handleClose={() => setOpenModal(false)} open={openModal}>
+
+                {successOrder ? (
+                    <div>
+                        <h3>Orden generada correctamente</h3>
+                        <p>Su numero de orden es: {successOrder}</p>
+                    </div>
+                ) : (
+                    <>
+                        <h2>Formulario Comprador</h2>
+                        <form onSubmit={handleSubmit}>
+                            <input type="text" name='name' placeholder='Nombre' 
+                                onChange={handleChange} 
+                                value={formData.name}
+                            />
+                            <input type="number" name='phone' placeholder='Telefono' 
+                                onChange={handleChange} 
+                                value={formData.phone}
+                            />
+                            <input type="mail" name='email' placeholder='mail' 
+                                onChange={handleChange} 
+                                value={formData.email}
+                            />
+
+                            <Button type="submit">Enviar</Button>
+                        </form>
+                    </>
+                )}
+
+            </ModalCustom>
         </Container>
     )
 }
 
 export default CartPage 
+
+/* Vaciar Carrito, y mandar a la home */

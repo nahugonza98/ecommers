@@ -1,6 +1,7 @@
 import React,{Fragment, useContext, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import CartContext from "../Context/CartContext"
+import ItemCount from '../ItemCount/ItemCount'
 //IMPORT MUI
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -46,7 +47,6 @@ return (
                             <Link to={`/detalle/${id}`}> Detalle del Producto </Link>
                             <div>
                             <button onClick={() => agregarProdCart(catalogo)}>Agregar Carrito</button>
-                            <button onClick={() => console.log(cartProducts)}>ver Carrito</button>
                             </div>
                                 
 
