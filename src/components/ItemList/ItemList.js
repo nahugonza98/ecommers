@@ -21,9 +21,6 @@ function ItemList(props){
         /* Como pasar props */
         const item = props.items
 
-        useEffect(()=>{
-            console.log("cartproductos", cartProducts)
-        }, [])
 
 
 return (

@@ -1,6 +1,5 @@
 import React, {Fragment, useState, useEffect} from "react";
 import ItemList from '../ItemList/ItemList'
-import datosProductos from '../../datosProductos'
 import { useParams } from 'react-router-dom'
 import db from '../../firebaseconfig'
 import { collection, getDocs } from "firebase/firestore";
@@ -8,6 +7,8 @@ import { collection, getDocs } from "firebase/firestore";
 /* Import MUI */
 const Item = () => {
 
+
+/* useParams trae como parametro lo que este con ":" */
 const { category } = useParams();
 
 

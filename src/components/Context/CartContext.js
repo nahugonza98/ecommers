@@ -13,7 +13,6 @@ const CartProvider = ({children}) =>{
     const agregarProdCart = (producto) =>{
             /* No repetir Items */
             let exist = cartProducts.find(cartProducts => cartProducts.id === producto.id)
-
             if(!exist) { 
                 setTotalPrecio(totalPrecio + producto.price)
                 setCartProducts(cartProducts => [...cartProducts, producto])
@@ -26,17 +25,15 @@ const CartProvider = ({children}) =>{
         setCartProducts(cartProducts.filter( (cartProduct) => {
             return cartProduct.id !== product.id
         }))
+        actualizarPrecio()
     }
 
-    /* Sumar Precio */
-    
-    const sumarPrecio = () =>{
-        let total = 0 
-        cartProducts.map((cartProduct)=>{
-            total = cartProduct.price + total
+    const actualizarPrecio = () =>{
+        let actualizar = cartProducts.map( (producto) =>{
+            setTotalPrecio(totalPrecio - producto.price);
         })
-        return total
-    }
+        return actualizar
+}
 
     /* Todo lo que se vaya a exportar agrupar en el data  */
     const data = {

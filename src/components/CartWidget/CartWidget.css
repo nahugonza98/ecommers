@@ -1,0 +1,31 @@
+.item-cart-modal {
+  display: flex;
+}
+
+.item-cart-modal__img {
+  overflow: hidden;
+  width: 30%;
+  height: 100px;
+}
+
+.item-cart-modal__info {
+  width: 60%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.item-cart-modal__action {
+  width: 10%;
+}
+
+.item-cart-modal__img img {
+  width: 100%;
+}
+
+.item-cart-modal__info p {
+  padding: 0px !important;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  font-size: 13px;
+  text-align: left !important;
+}

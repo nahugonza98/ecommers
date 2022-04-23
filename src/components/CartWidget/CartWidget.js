@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
 import CartContext from '../Context/CartContext';
+import "./CartWidget.css"
 
 const CartWidget = () => {
     const { cartProducts, deleteProduct } = useContext(CartContext)
@@ -75,7 +76,7 @@ const CartWidget = () => {
                     return(
                         <MenuItem className='item-cart-modal' key={cartProduct.id}>
                             <div className='item-cart-modal__img'>
-                                <img src={`./${cartProduct.image}`} /> 
+                                <img src={`${cartProduct.image}`} /> 
                             </div>
                             <div className='item-cart-modal__info'>
                                 <p>{cartProduct.title}</p>

@@ -27,9 +27,9 @@ function App() {
 export default App;
 
 /* Detalles a terminar
-1. Corregir problemas con las rutas de imagenes
-2. "Continuar Comprando" debe redireccionar a home
-3. Cuando quite algun producto de la compra debe actualizar el precio total
+1. Corregir problemas con las rutas de imagenes - Listo
+2. "Continuar Comprando" debe redireccionar a home - Listo
+3. Cuando quite algun producto de la compra debe actualizar el precio total -Listo
 4. Tema CSS
 5. Agregar al menos 4 productos
 6. Poner un contador para agregar directamente el numero de prod a comprar

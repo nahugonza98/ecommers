@@ -7,8 +7,11 @@ import "./Cart.css"
 import ModalCustom from '../Modal/Modal';
 import db from '../../firebaseconfig'
 import { addDoc, collection } from 'firebase/firestore';
+import {useNavigate} from "react-router-dom"
 
 const CartPage = () => {
+    /* Importacion de Hooks */
+    const navigate = useNavigate();
     const { cartProducts, deleteProduct, totalPrecio } = useContext(CartContext)
     const [openModal, setOpenModal] = useState(false)
 
@@ -87,7 +90,7 @@ const CartPage = () => {
                     return(
                         <div className='cart-table__content' key={id}>
                             <div className='cart-table__content-img'>
-                                <img src={`./${image}`} />
+                                <img src={`${image}`} />
                             </div>
                             <div className='cart-table__content-title'>
                                 <p>{title}</p>
@@ -109,7 +112,7 @@ const CartPage = () => {
                 })}
 
                 <div className='cart-footer'>
-                    <Button className='btn-custom'>Continuar comprando</Button>
+                    <Button className='btn-custom' onClick={()=>navigate("/")}>Continuar comprando</Button>
                     <div className='cart-checkout-details'>
                         <div className='cart-checkout__subtotal'>
                             <p>Subtotal</p>
@@ -137,8 +140,8 @@ const CartPage = () => {
                         <h2>Formulario Comprador</h2>
                         <form onSubmit={handleSubmit}>
                             <input type="text" name='name' placeholder='Nombre' 
-                                onChange={handleChange} 
-                                value={formData.name}
+                        onChange={handleChange} 
+                            value={formData.name}
                             />
                             <input type="number" name='phone' placeholder='Telefono' 
                                 onChange={handleChange} 
