@@ -28,13 +28,13 @@ const CartPage = () => {
             buyer : formData,
             /* Se mapea el Item para que devuelva los obj */
             item: cartProducts.map( (cartProduct) => {
-
                 return{
                     id: cartProduct.id,
                     title: cartProduct.title,
-                    price: cartProduct.price
+                    price: cartProduct.price * cartProduct.quantity
                 }
             }),
+            
             total: totalPrecio,
         }
     )
@@ -86,7 +86,8 @@ const CartPage = () => {
                     <h2>Quitar</h2>
                 </div>
                 {cartProducts.map( (cartProduct) => {
-                    const { price, image, title, talle, id } = cartProduct
+                    console.log(cartProduct);
+                    const { price, image, title, talle, id, quantity } = cartProduct
                     return(
                         <div className='cart-table__content' key={id}>
                             <div className='cart-table__content-img'>
@@ -100,7 +101,7 @@ const CartPage = () => {
                                 <p>$ {price}</p>
                             </div>
                             <div className='cart-table__content-quantity'>
-                                <p>1</p>
+                                <p>{quantity}</p>
                             </div>
                             <div className='cart-table__content-price'>
                                 <button className='btn-delete' onClick={() => deleteProduct(cartProduct)}>

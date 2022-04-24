@@ -41,7 +41,6 @@ useEffect(() => {
     })
 }, [category])
 
-
 const filtroCategorias = (productos, category)=> {
     return productos.map((producto)=>{
         if(producto.category == category){

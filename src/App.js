@@ -31,8 +31,15 @@ export default App;
 2. "Continuar Comprando" debe redireccionar a home - Listo
 3. Cuando quite algun producto de la compra debe actualizar el precio total -Listo
 4. Tema CSS
-5. Agregar al menos 4 productos
-6. Poner un contador para agregar directamente el numero de prod a comprar
-7. Categorias {zapatilla no funciona}
+5. Agregar al menos 4 productos - Listo
+6. Poner un contador para agregar directamente el numero de prod a comprar - Listo
+7. Categorias {zapatilla no funciona} - Listo
 8. Validaciones de formulario
-9. Que el contador del detalle funcione*/
+9. Que el contador del detalle funcione
+10-NavBar correcto
+11- Boton para seguir comprando o finalizar compra al darle al "agregar a carrito"
+12- El precio actualizarse por la cantidad - Listo
+13- En cart solucionar el monto, y cantidad visible - Listo
+
+
+*/

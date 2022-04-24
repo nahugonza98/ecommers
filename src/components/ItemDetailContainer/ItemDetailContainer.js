@@ -15,7 +15,6 @@ const ItemDetailContainer = () =>{
         
         const iCollection = collection(db, 'productos')
         const productoSnap = await getDocs(iCollection)
-        console.log(iCollection)
         /* Devuelve ProductoSnap */
         
         /* Mapeo el Snap para obtener el array de productos */

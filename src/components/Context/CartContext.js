@@ -11,10 +11,10 @@ const CartProvider = ({children}) =>{
     const [totalPrecio, setTotalPrecio] = useState(0)
 
     const agregarProdCart = (producto) =>{
-            /* No repetir Items */
+        /* No repetir Items */
             let exist = cartProducts.find(cartProducts => cartProducts.id === producto.id)
             if(!exist) { 
-                setTotalPrecio(totalPrecio + producto.price)
+                setTotalPrecio(totalPrecio + producto.price * producto.quantity)
                 setCartProducts(cartProducts => [...cartProducts, producto])
             }
     }
@@ -30,7 +30,7 @@ const CartProvider = ({children}) =>{
 
     const actualizarPrecio = () =>{
         let actualizar = cartProducts.map( (producto) =>{
-            setTotalPrecio(totalPrecio - producto.price);
+            setTotalPrecio(totalPrecio - producto.price * producto.quantity);
         })
         return actualizar
 }

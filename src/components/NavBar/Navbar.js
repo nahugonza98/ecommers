@@ -119,7 +119,7 @@ const ResponsiveAppBar = () => {
               <Box className="categorias" sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
                   <ul>CATEGORIAS
                     <li className="link">
-                      <Link  to={"/zapatilla"}>Zapatilla</Link>
+                      <Link  to={"/zapatillas"}>Zapatilla</Link>
                     </li>
                     <li className="link">
                       <Link to={"/botines"}>Botines</Link>

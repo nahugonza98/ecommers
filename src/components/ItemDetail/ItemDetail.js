@@ -13,6 +13,8 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Link } from 'react-router-dom'
 
+
+
 function seguirCompra () {
     return (
     <div className='seguirCompra'>
@@ -44,12 +46,9 @@ function ItemDetail({data}){
             }
             getData(id)
             }, [])
-    
-console.log(product)
-            
-            
 
 const [valorCount, setValorCount] = useState(false)
+
     const borrarTitulo = (text) => {
         setValorCount(text)
     }
@@ -69,7 +68,7 @@ const [valorCount, setValorCount] = useState(false)
                             </CardContent>
                         </Card> 
                         <div>
-        {valorCount ? seguirCompra() : <ItemCount onAdd={(text) => borrarTitulo(text)} stock={10} initial={0} />}
+        {valorCount ? seguirCompra() : <ItemCount onAdd={(text) => borrarTitulo(text)} stock={product.stock} initial={0} />}
         </div>
 
             </div>
