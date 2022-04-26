@@ -86,7 +86,6 @@ const CartPage = () => {
                     <h2>Quitar</h2>
                 </div>
                 {cartProducts.map( (cartProduct) => {
-                    console.log(cartProduct);
                     const { price, image, title, talle, id, quantity } = cartProduct
                     return(
                         <div className='cart-table__content' key={id}>
