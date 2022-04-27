@@ -1,28 +1,5 @@
 .container{
     background-color: black;
 }
-a:-webkit-any-link {
-    cursor: pointer;
-    text-decoration: none;
-}
 
-ul {
-    cursor: pointer;
-    list-style-type: none;
-}
-
-.categorias{
-    display: block;
-
-}
-.categorias li{
-background-color: inherit;
-text-decoration: none;
-padding: 10px 15px;
-min-width: 140px;
-}
-
-.categorias li:hover{
-    background-color: red;
-}
 

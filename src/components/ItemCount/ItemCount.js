@@ -48,6 +48,7 @@
     }
     
     function donAdd(){
+        {console.log("valorCount es ", valorCount)}
         return(
             <div><p>ABC</p></div>
         )

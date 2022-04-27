@@ -35,12 +35,13 @@ export default App;
 6. //?Poner un contador para agregar directamente el numero de prod a comprar - Listo
 7. //?Categorias {zapatilla no funciona} - Listo
 8. //*Validaciones de formulario
-9. //!Que el contador del detalle funcione 
-10- //*NavBar correcto
+9. //?Que el contador del detalle funcione - Listo
+10- //? NavBar correcto - Listo
 11- //!Boton para seguir comprando o finalizar compra al darle al "agregar a carrito"
+11- //!Logica hecha, solo falta descubrir porque los div no se muestran en el dom
 12- //?El precio actualizarse por la cantidad - Listo
 13- //?En cart solucionar el monto, y cantidad visible - Listo
-14-//!Contador del ItemDetail
+14-//?Contador del ItemDetail
 
 *VERDE
 !ROJO

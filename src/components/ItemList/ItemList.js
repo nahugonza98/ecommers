@@ -40,6 +40,7 @@
                     <Link to={`/detalle/${id}`}> Detalle del Producto </Link>
                     <div>
                     <ItemCount stock={stock} catalogo={catalogo} />
+                    
                     </div>
                 </Card>
                 </div>
