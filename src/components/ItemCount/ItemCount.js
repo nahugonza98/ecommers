@@ -38,7 +38,7 @@
     
     
     function seguirCompra() {
-        valorCount ? onAdd() : (text) => borrarTitulo(text);
+        return valorCount ? onAdd() : (text) => borrarTitulo(text);
         /* if(valorCount == true){
             onAdd()
         }else{
@@ -51,6 +51,7 @@
         return (
             <div className="seguirCompra">
                 {console.log("valorCount es ", valorCount)}
+                
                 <Link to="/cart">
                 <button
                     className="btnSeguirCompra"
