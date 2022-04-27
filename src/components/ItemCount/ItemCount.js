@@ -38,7 +38,7 @@
     
     
     function seguirCompra() {
-        return valorCount ? onAdd() : (text) => borrarTitulo(text);
+        return valorCount ? donAdd() : (text) => borrarTitulo(text);
         /* if(valorCount == true){
             onAdd()
         }else{
@@ -47,6 +47,11 @@
         } */
     }
     
+    function donAdd(){
+        return(
+            <div><p>ABC</p></div>
+        )
+    }
     function onAdd(){
         return (
             <div className="seguirCompra">
