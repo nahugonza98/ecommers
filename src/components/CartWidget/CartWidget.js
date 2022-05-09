@@ -27,9 +27,9 @@ const CartWidget = () => {
 
 
     return (
-        <div className="cart-button">
-        <div className='Probando'>
-            <ShoppingCartIcon
+    <div className="cart-button">
+        <div className="Probando">
+        <ShoppingCartIcon
             onClick={handleClick}
             className="iconCart"
             size="small"
@@ -37,29 +37,29 @@ const CartWidget = () => {
             aria-controls={open ? "account-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
-            ></ShoppingCartIcon>
-            <p className="countCart">{cartProducts.length}</p>
+        ></ShoppingCartIcon>
+        <p className="countCart">{cartProducts.lenght}</p>
         </div>
         <Menu
-            anchorEl={anchorEl}
-            id="account-menu"
-            className="cart-modal"
-            open={open}
-            onClose={handleClose}
-            onClick={handleClose}
-            PaperProps={{
+        anchorEl={anchorEl}
+        id="account-menu"
+        className="cart-modal"
+        open={open}
+        onClose={handleClose}
+        onClick={handleClose}
+        PaperProps={{
             elevation: 0,
             sx: {
-                overflow: "visible",
-                filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-                mt: 1.5,
-                "& .MuiAvatar-root": {
+            overflow: "visible",
+            filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+            mt: 1.5,
+            "& .MuiAvatar-root": {
                 width: 32,
                 height: 32,
                 ml: -0.5,
                 mr: 1,
-                },
-                "&:before": {
+            },
+            "&:before": {
                 content: '""',
                 display: "block",
                 position: "absolute",
@@ -70,42 +70,43 @@ const CartWidget = () => {
                 bgcolor: "background.paper",
                 transform: "translateY(-50%) rotate(45deg)",
                 zIndex: 0,
-                },
             },
-            }}
-            transformOrigin={{ horizontal: "right", vertical: "top" }}
-            anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+            },
+        }}
+        transformOrigin={{ horizontal: "right", vertical: "top" }}
+        anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         >
-            <p>Carrito de Compras</p>
-            <Divider />
-            {cartProducts.map((cartProduct) => {
+        <p>Carrito de Compras</p>
+        <Divider />
+        {cartProducts.map((cartProduct) => {
             return (
-                <MenuItem className="item-cart-modal" key={cartProduct.id}>
+            <MenuItem className="item-cart-modal" key={cartProduct.id}>
                 <div className="item-cart-modal__img">
-                    <img src={`${cartProduct.image}`} />
+                <img src={`${cartProduct.image}`} />
                 </div>
                 <div className="item-cart-modal__info">
-                    <p>{cartProduct.title}</p>
-                    <span>$ {cartProduct.price}</span>
+                <p>{cartProduct.title}</p>
+                <span>$ {cartProduct.price}</span>
+                <div>Cantidad: {cartProduct.quantity}</div>
                 </div>
                 <div
-                    className="item-cart-modal__action"
-                    onClick={() => deleteProduct(cartProduct)}
+                className="item-cart-modal__action"
+                onClick={() => deleteProduct(cartProduct)}
                 >
-                    <DeleteIcon />
+                <DeleteIcon />
                 </div>
-                </MenuItem>
+            </MenuItem>
             );
-            })}
+        })}
 
-            <Divider />
-            <div className="footer-modal-cart">
+        <Divider />
+        <div className="footer-modal-cart">
             <Button className="btn-custom">
-                <Link to="/cart">Iniciar la compra</Link>
+            <Link to="/cart">Iniciar la compra</Link>
             </Button>
-            </div>
-        </Menu>
         </div>
+        </Menu>
+    </div>
     );
 }
 

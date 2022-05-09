@@ -1,0 +1,33 @@
+.seguirCompra{
+padding:10px;
+margin: 5px;
+margin-left: 60px;
+
+}
+.btnFinalizar{
+border: none;
+align-items: center;
+height: 30px;
+margin-bottom: 5px;
+}
+
+.countDiv .contador{
+margin: 2px;
+}
+.link{
+text-decoration: none;
+}
+
+.Stack .btnSeguirCompra{
+    align-items: center;
+    font-style: italic;
+    height: 25px;
+    text-transform: capitalize;
+    font-size: 14px;
+    padding: 6px 10px;
+    width: 150px;
+    margin-top: 3px;
+    margin-left: 5px;
+    color: black
+    ;
+}

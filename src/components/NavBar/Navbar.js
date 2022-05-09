@@ -25,30 +25,25 @@ const pages = [
   { title: "Precios", id: 2, url: "/detalle" },
 ];
 
-
-
 const ResponsiveAppBar = () => {
-
   /* //? State */
-const [anchorElNav, setAnchorElNav] = React.useState(null);
-const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
+  /* //! Funciones */
+  const open = Boolean(anchorEl);
 
-/* //! Funciones */
-const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-const handleClick = (event) => {
-  setAnchorEl(event.currentTarget);
-}
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
-const handleClose = () => {
-  setAnchorEl(null);
-};
-
-const handleCloseNavMenu = () => {
-  setAnchorElNav(null);
-};
-
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
 
   return (
     <AppBar position="static">
@@ -104,13 +99,21 @@ const handleCloseNavMenu = () => {
                 "aria-labelledby": "basic-button",
               }}
             >
-              <Link to={"/zapatillas"}><MenuItem onClick={handleClose}>Zapatillas</MenuItem></Link>
-              <Link to={"/botines"}><MenuItem onClick={handleClose}>Botines</MenuItem></Link>
-              <Link to={"/short"}><MenuItem onClick={handleClose}>Short</MenuItem></Link>
-              <Link to={"/remeras"}><MenuItem onClick={handleClose}>Remeras</MenuItem></Link>
+              <Link to={"/zapatillas"}>
+                <MenuItem onClick={handleClose}>Zapatillas</MenuItem>
+              </Link>
+              <Link to={"/botines"}>
+                <MenuItem onClick={handleClose}>Botines</MenuItem>
+              </Link>
+              <Link to={"/short"}>
+                <MenuItem onClick={handleClose}>Short</MenuItem>
+              </Link>
+              <Link to={"/remeras"}>
+                <MenuItem onClick={handleClose}>Remeras</MenuItem>
+              </Link>
             </Menu>
           </Box>
-            <CartWidget />
+          <CartWidget />
         </Toolbar>
       </Container>
     </AppBar>

@@ -1,100 +1,69 @@
     import React, { Fragment, useState, useContext } from "react";
     import CartContext from "../Context/CartContext";
     import { Link } from "react-router-dom";
+    /* Import MUI */
+    import Stack from "@mui/material/Stack";
+    import Button from "@mui/material/Button";
+    /* ImportCss */
+    import "./ItemCount.css"
 
-
-    const ContadorItem = ({ stock, catalogo }) => {
+    const ContadorItem = ({ stock, catalogo, initial }) => {
     /* Context */
     const { cartProducts, agregarProdCart } = useContext(CartContext);
-
     /* State */
-    const [contador, setContador] = useState(0);
+    const [contador, setContador] = useState(initial);
     const [valorCount, setValorCount] = useState(false);
-
     /* Funciones */
-
     function sumarStock() {
         if (contador < stock) {
         setContador(contador + 1);
-        setValorCount(true)
+        setValorCount(true);
         }
     }
 
     function restarStock() {
-        if (contador > 0) {
+        if (contador > initial) {
         setContador(contador - 1);
-        setValorCount(false);
+        }else if(contador == initial){
+            setValorCount(false);
         }
     }
 
     function productComplete() {
         let quantity = catalogo;
         catalogo.quantity = contador;
-        console.log(quantity);
         return quantity;
     }
 
-    
-    
-    
-    function seguirCompra() {
-        return valorCount ? donAdd() : (text) => borrarTitulo(text);
-        /* if(valorCount == true){
-            onAdd()
-        }else{
-            (text) => borrarTitulo(text)
-            console.log("chau")
-        } */
-    }
-    
-    function donAdd(){
-        {console.log("valorCount es ", valorCount)}
-        return(
-            <div><p>ABC</p></div>
-        )
-    }
     function onAdd(){
-        return (
-            <div className="seguirCompra">
-                {console.log("valorCount es ", valorCount)}
-                
-                <Link to="/cart">
-                <button
-                    className="btnSeguirCompra"
-                    onClick={() => agregarProdCart(productComplete())}
-                >
-                    Ir al carrito y finalizar compra
-                </button>
-                </Link>
+    return (
+    <div className="seguirCompra">
+    <Link to="/cart" className="link">
+    <Stack direction="row" spacing={2} className="btnFinalizar">
+    <Button variant="contained" color="success" className="btnSeguirCompra" onClick={() => agregarProdCart(productComplete())}>
+        Añadir al Carro
+    </Button>
+</Stack>
+    </Link>
 
-                <Link to="/">
-                <button className="btnSeguirCompra">Seguir comprando</button>
-                </Link>
-            </div>
-            )}
-
-    const borrarTitulo = (text) => {
-        setValorCount(text);
-    };
-
+    <Link to="/" className="link">
+        <Stack direction="row" spacing={2} className="Stack">
+            <Button variant="outlined" color="secondary" className="btnSeguirCompra"> Seguir Comprando</Button>
+            </Stack>
+    </Link>
+</div>
+)}
     /* DOM */
     return (
         <Fragment>
-        <div>
-            <p>{contador}</p>
+            <div className="countDiv">
+            <p className="contador">{contador}</p>
             <button onClick={restarStock}>-</button>
             <button onClick={sumarStock}>+</button>
-            <button onClick={seguirCompra}>Añadir al Carro</button>
-        </div>
+            {valorCount && onAdd()}
+            </div>
         </Fragment>
     );
     };
 
-    
-                    
-
-{/* <button onClick={() => agregarProdCart(productComplete())}>
-Agregar Carrito
-</button>;
-*/}
 export default ContadorItem;

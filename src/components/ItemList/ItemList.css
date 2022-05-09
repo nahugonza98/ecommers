@@ -1,0 +1,67 @@
+.divUno{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+
+}
+.divMain{
+    width: 24%;
+    box-shadow: 2px 2px 2px 1px rgba(76, 63, 145, 0.5);
+}
+
+.imagen{
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+}
+
+.CardHeader .price{
+    position: absolute;
+}
+
+.divDetail{
+    display: flex;
+    justify-content: center;
+    height: 30px;
+}
+.divDetail .detailProduct{
+    text-decoration: none;
+    border: none;
+    padding: 10px 20px;
+    display: inline-block;
+    color: gray;
+    font-size: 1rem;
+    font-weight: 800;
+    width: 400px;
+    cursor: pointer;
+}
+.divDetail .detailProduct .span{
+        display: inline-block;
+        transform: skew(15deg);
+        font-style: italic;
+}
+
+.divDetail .detailProduct .span::before{
+    content:"";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    left: 0;
+    background: #000;
+    opacity: 0;
+    z-index: -1;
+    transition: all 0.5s;
+
+}
+.divDetail .detailProduct  .span:hover{
+    color: #fff;
+    width: 150px;
+}
+.divDetail .detailProduct  .span:hover::before{
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
